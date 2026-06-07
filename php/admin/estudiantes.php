@@ -48,8 +48,8 @@
                             <div class="col">
                             <a href="agregar_estudiante.php"><button class="btn btn-primary">Agregar Estudiante</button></a>
                         </div>
-                            <div class="col">
-                            Column
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Buscar estudiante...">
                         </div>
                         <div class="col">
                         Column
