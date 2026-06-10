@@ -11,7 +11,7 @@
         $termino_busqueda = $mysql->real_escape_string($_POST['busqueda']);
 
 
-    $consulta_buscar = "SELECT * FROM estudiantes WHERE (nombres LIKE '%$termino_busqueda%')";
+    $consulta_buscar = "SELECT * FROM estudiantes WHERE (nombres LIKE '%$termino_busqueda%') OR (apellidos LIKE '%$termino_busqueda%')";
 
     $resultado_busqueda = $mysql->query($consulta_buscar);
     $filas_busqueda= $resultado_busqueda->fetch_all(MYSQLI_ASSOC);
@@ -63,14 +63,30 @@
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" placeholder="escribe para buscar..." name="busqueda" aria-describedby="basic-addon1">
                                     <button class="btn btn-success" type="submit">Buscar</button>
+                                    <a href="estudiantes.php"><button class="btn btn-secondary">reset</button></a>
                                 </div>
                             </form>
                         </div>
                         <div class="col">
-                        <?php echo $_POST['busqueda']; ?>
+                        
                         </div>
                     </div>
-</div>
+                </div>
+            <div class="container text-center">
+                    <?php
+                        if (isset($_POST['busqueda'])) {
+                    ?>
+                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <?php
+                        echo "Resultados de búsqueda para: " . $_POST['busqueda'];
+                    ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    
+                </div>
+                <?php
+                        }
+                    ?>    
+            </div>
 
                 </div>
                 <div class="card-body table_scroll">
