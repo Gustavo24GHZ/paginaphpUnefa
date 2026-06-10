@@ -6,6 +6,17 @@
     $consulta = "SELECT * FROM estudiantes";
     $resultado = $mysql->query($consulta);
     $filas= $resultado->fetch_all(MYSQLI_ASSOC);
+
+    if (isset($_POST['busqueda'])) {
+        $termino_busqueda = $mysql->real_escape_string($_POST['busqueda']);
+
+
+    $consulta_buscar = "SELECT * FROM estudiantes WHERE (nombres LIKE '%$termino_busqueda%')";
+
+    $resultado_busqueda = $mysql->query($consulta_buscar);
+    $filas_busqueda= $resultado_busqueda->fetch_all(MYSQLI_ASSOC);
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,25 +45,29 @@
         </li>
         </ul>
 
-        <div class="container text-center mt-5">
+        <div class="container text-center mt-3">
             <h1>Lista de Estudiantes</h1>
         </div>
 
-        <div class="container mt-5">
+        <div class="container mt-4">
 
             <div class="card">
                 <div class="card-header">
-
                 <div class="container text-center">
                         <div class="row">
                             <div class="col">
                             <a href="agregar_estudiante.php"><button class="btn btn-primary">Agregar Estudiante</button></a>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Buscar estudiante...">
+                            <form action="estudiantes.php" method="post">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="escribe para buscar..." name="busqueda" aria-describedby="basic-addon1">
+                                    <button class="btn btn-success" type="submit">Buscar</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="col">
-                        Column
+                        <?php echo $_POST['busqueda']; ?>
                         </div>
                     </div>
 </div>
@@ -72,9 +87,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php 
+
+                        <?php
+                            if (isset($_POST['busqueda'])) {
                             $num = 1;
-                            foreach($filas as $fila){
+                            foreach ($filas_busqueda as $fila_busqueda) {
+                            ?>
+
+                            <tr>
+                                <td><?php echo $num++; ?></td>
+                                <td><?php echo $fila_busqueda['nombres']; ?></td>
+                                <td><?php echo $fila_busqueda['apellidos']; ?></td>
+                                <td><?php echo $fila_busqueda['cedula']; ?></td>
+                                <td><?php echo $fila_busqueda['telefono']; ?></td>
+                                <td><?php echo $fila_busqueda['correo']; ?></td>
+                                <td>
+                                    <button type="button"class="btn  btn-warning">Editar</button>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                            }else {
+                            
+                            $num = 1;
+                            foreach ($filas as $fila) {
                             ?>
 
                             <tr>
@@ -90,8 +126,11 @@
                             </tr>
 
                             <?php
-                                } 
-                            ?>
+                            }
+                            
+                            }
+                        ?>
+
                         </tbody>
                     </table>
                 </div>
