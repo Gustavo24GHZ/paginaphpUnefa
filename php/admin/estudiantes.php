@@ -12,10 +12,8 @@
 
 
     $consulta_buscar = "SELECT * FROM estudiantes WHERE (nombres LIKE '%$termino_busqueda%') OR (apellidos LIKE '%$termino_busqueda%')";
-
     $resultado_busqueda = $mysql->query($consulta_buscar);
     $filas_busqueda= $resultado_busqueda->fetch_all(MYSQLI_ASSOC);
-
     }
 ?>
 
@@ -137,7 +135,9 @@
                                 <td><?php echo $fila['telefono']; ?></td>
                                 <td><?php echo $fila['correo']; ?></td>
                                 <td>
-                                    <button type="button"class="btn  btn-warning">Editar</button>
+                                    <a href="editar_estudiante.php?id=<?php echo base64_encode($fila['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
+
+                                    <button type="button"class="btn  btn-danger">Eliminar</button>
                                 </td>
                             </tr>
 

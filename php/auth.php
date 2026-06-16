@@ -12,9 +12,9 @@
 
     $mysql = new mysqli("localhost", "root","", "escuela1bd");
 
-    if($mysql){
-        echo "conexion exitosa";
-    }
+    //if($mysql){
+   //     echo "conexion exitosa";
+    //}
 
     $query = " SELECT * FROM usuarios WHERE nombre_usuario = '$usu'";
     $result = $mysql->query($query);
