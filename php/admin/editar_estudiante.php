@@ -44,7 +44,11 @@
             <div class="card">
                 <div class="card-body">
 
-            <form action="agregar.php" method="POST">
+                <?php 
+                if ($resultado_busqueda->num_rows == 1) {
+                ?>
+
+            <form action="editar.php" method="POST">
 
     <div class="container text-center">
     <div class="row">
@@ -86,6 +90,13 @@
                         <button class="btn btn-primary" type="submit">Agregar</button>
                     </div>
     </form>
+
+                <?php
+                } else {
+                    echo '<div class="alert alert-danger text-center" role="alert">No se encontró el estudiante.</div>';
+                }
+                ?>
+
                 </div>
             </div> 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
