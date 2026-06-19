@@ -117,6 +117,8 @@
                                 <td><?php echo $fila_busqueda['correo']; ?></td>
                                 <td>
                                     <a href="editar_estudiante.php?id=<?php echo base64_encode($fila_busqueda['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
+
+                                    <a href="borrar.php?id=<?php echo base64_encode($fila_busqueda['id']);?>"><button class="btn btn-danger" type="reset">Borrar</button>
                                 </td>
                             </tr>
                             <?php
