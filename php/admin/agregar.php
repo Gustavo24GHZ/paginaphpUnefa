@@ -11,7 +11,6 @@ $telefono_est = $_POST['telefono_est'];
 
 if (isset($nombres_est)== null OR (isset ($apellidos_est)) OR (isset ($cedula_est)) OR (isset ($correo_est)) OR (isset ($telefono_est))){
 
-    echo'<script>alert("debe escribir todos los campos"); window.location,href="estudiantes.php;<script>';
 
 } else{
             $insercion = "INSERT estudiantes SET 
