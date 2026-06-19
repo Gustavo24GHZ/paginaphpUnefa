@@ -10,9 +10,8 @@ $cedula_est    = $_POST['cedula_est'];
 $correo_est    = $_POST['correo_est'];
 $telefono_est  = $_POST['telefono_est'];
 
-if (isset($nombres_est)== null OR (isset ($apellidos_est)) OR (isset ($cedula_est)) OR (isset ($correo_est)) OR (isset ($telefono_est))){
-
-    echo'<script>alert("debe escribir todos los campos"); window.location,href="estudiantes.php;<script>';
+if (empty($_POST['nombres_est']) || empty($_POST['apellidos_est']) || empty($_POST['cedula_est']) || empty($_POST['correo_est']) || empty ($_POST['telefono_est'])) {
+    echo '<script>alert ("debe completar todos los campos ");window.location.href="estudiantes.php";</script>';
 } else {
 
 $edicion = "UPDATE estudiantes SET

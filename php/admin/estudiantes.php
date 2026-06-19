@@ -116,7 +116,7 @@
                                 <td><?php echo $fila_busqueda['telefono']; ?></td>
                                 <td><?php echo $fila_busqueda['correo']; ?></td>
                                 <td>
-                                    <button type="button"class="btn  btn-warning">Editar</button>
+                                    <a href="editar_estudiante.php?id=<?php echo base64_encode($fila_busqueda['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
                                 </td>
                             </tr>
                             <?php
@@ -134,12 +134,12 @@
                 <td><?php echo $fila['cedula']; ?></td>
                 <td><?php echo $fila['telefono']; ?></td>
                 <td><?php echo $fila['correo']; ?></td>
-                                <td>
-    <a href="editar_estudiante.php?id=<?php echo base64_encode($fila['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
+                <td>
+                <a href="editar_estudiante.php?id=<?php echo base64_encode($fila['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
 
-                                    <button type="button"class="btn  btn-danger">Eliminar</button>
-                                </td>
-                            </tr>
+                <a href="borrar.php?id=<?php echo base64_encode($fila['id']);?>"><button class="btn btn-danger" type="reset">Borrar</button>
+            </td>
+        </tr>
 
                             <?php
                             }

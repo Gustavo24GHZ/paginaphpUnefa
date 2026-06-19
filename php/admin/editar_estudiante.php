@@ -54,11 +54,11 @@
     <div class="row">
         <div class="col">
         <label for=""><b>Nombres</b></label>
-        <input type="text" class="form-control" name="nombres_est" value="<?php echo $filas_busqueda ['nombres']?>" placeholder="Ingrese los nombres" maxlength="60" required>
+        <input type="text" class="form-control" name="nombres_est" value="<?php echo $filas_busqueda ['nombres']?>" placeholder="Ingrese los nombres" maxlength="60" >
     </div>
     <div class="col">
         <label for=""><b>Apellidos</b></label>
-        <input type="text" class="form-control" name="apellidos_est" value="<?php echo $filas_busqueda ['apellidos']?>" placeholder="Ingrese los apellidos" maxlength="60" required>
+        <input type="text" class="form-control" name="apellidos_est" value="<?php echo $filas_busqueda ['apellidos']?>" placeholder="Ingrese los apellidos" maxlength="60" >
     </div>
     </div>
 </div>
