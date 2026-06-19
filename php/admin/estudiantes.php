@@ -6,14 +6,14 @@
     $consulta = "SELECT * FROM estudiantes";
     $resultado = $mysql->query($consulta);
     $filas= $resultado->fetch_all(MYSQLI_ASSOC);
+    $filas_busqueda = [];
 
     if (isset($_POST['busqueda'])) {
         $termino_busqueda = $mysql->real_escape_string($_POST['busqueda']);
 
-
-    $consulta_buscar = "SELECT * FROM estudiantes WHERE (nombres LIKE '%$termino_busqueda%') OR (apellidos LIKE '%$termino_busqueda%')";
-    $resultado_busqueda = $mysql->query($consulta_buscar);
-    $filas_busqueda= $resultado_busqueda->fetch_all(MYSQLI_ASSOC);
+        $consulta_buscar = "SELECT * FROM estudiantes WHERE (nombres LIKE '%$termino_busqueda%') OR (apellidos LIKE '%$termino_busqueda%')";
+        $resultado_busqueda = $mysql->query($consulta_buscar);
+        $filas_busqueda= $resultado_busqueda->fetch_all(MYSQLI_ASSOC);
     }
 ?>
 
