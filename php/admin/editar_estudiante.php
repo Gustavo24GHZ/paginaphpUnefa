@@ -87,8 +87,11 @@
                     <div class="text-center mt-4">
                         <a href="estudiantes.php"><button class="btn btn-danger" type="button">Cancelar</button></a>
                         <button class="btn btn-secondary" type="reset">Borrar</button>
-                        <button class="btn btn-primary" type="submit">Agregar</button>
+                        <button class="btn btn-primary" type="submit">Guardar Cambios</button>
                     </div>
+
+        <input type="hidden" name="id_est" value="<?php echo $id_est;?>">
+
     </form>
 
                 <?php

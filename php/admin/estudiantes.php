@@ -127,15 +127,15 @@
                             foreach ($filas as $fila) {
                             ?>
 
-                            <tr>
-                                <td><?php echo $num++; ?></td>
-                                <td><?php echo $fila['nombres']; ?></td>
-                                <td><?php echo $fila['apellidos']; ?></td>
-                                <td><?php echo $fila['cedula']; ?></td>
-                                <td><?php echo $fila['telefono']; ?></td>
-                                <td><?php echo $fila['correo']; ?></td>
+        <tr>
+                <td><?php echo $num++; ?></td>
+                <td><?php echo $fila['nombres']; ?></td>
+                <td><?php echo $fila['apellidos']; ?></td>
+                <td><?php echo $fila['cedula']; ?></td>
+                <td><?php echo $fila['telefono']; ?></td>
+                <td><?php echo $fila['correo']; ?></td>
                                 <td>
-                                    <a href="editar_estudiante.php?id=<?php echo base64_encode($fila['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
+    <a href="editar_estudiante.php?id=<?php echo base64_encode($fila['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
 
                                     <button type="button"class="btn  btn-danger">Eliminar</button>
                                 </td>
