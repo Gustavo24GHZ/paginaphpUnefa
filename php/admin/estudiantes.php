@@ -108,19 +108,40 @@
                             foreach ($filas_busqueda as $fila_busqueda) {
                             ?>
 
-                            <tr>
-                                <td><?php echo $num++; ?></td>
-                                <td><?php echo $fila_busqueda['nombres']; ?></td>
-                                <td><?php echo $fila_busqueda['apellidos']; ?></td>
-                                <td><?php echo $fila_busqueda['cedula']; ?></td>
-                                <td><?php echo $fila_busqueda['telefono']; ?></td>
-                                <td><?php echo $fila_busqueda['correo']; ?></td>
-                                <td>
-                                    <a href="editar_estudiante.php?id=<?php echo base64_encode($fila_busqueda['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
+        <tr>
+                <td><?php echo $num++; ?></td>
+                <td><?php echo $fila_busqueda['nombres']; ?></td>
+                <td><?php echo $fila_busqueda['apellidos']; ?></td>
+                <td><?php echo $fila_busqueda['cedula']; ?></td>
+                <td><?php echo $fila_busqueda['telefono']; ?></td>
+                <td><?php echo $fila_busqueda['correo']; ?></td>
+                <td>
+                <a href="editar_estudiante.php?id=<?php echo base64_encode($fila_busqueda['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
 
-                                    <a href="borrar.php?id=<?php echo base64_encode($fila_busqueda['id']);?>"><button class="btn btn-danger" type="reset">Borrar</button>
-                                </td>
-                            </tr>
+                <button class="btn btn-danger" type="reset" data-bs-toggle="modal" data-bs-target="#modal_eliminar_<?php echo $fila_busqueda['id'];?>">Borrar</button>
+
+                <!-- Modal -->
+            <div class="modal fade" id="modal_eliminar_<?php echo $fila_busqueda['id'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Estudiante</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Seguro que desea eliminar al estudiante <?php echo $fila_busqueda['nombres'].' '.$fila_busqueda['apellidos'];?>?</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <a href="borrar.php?id=<?php echo base64_encode($fila_busqueda['id']);?>"><button class="btn btn-danger" type="reset">Borrar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+                </td>
+            </tr>
                             <?php
                         }
                             }else {
@@ -129,7 +150,7 @@
                             foreach ($filas as $fila) {
                             ?>
 
-        <tr>
+            <tr>
                 <td><?php echo $num++; ?></td>
                 <td><?php echo $fila['nombres']; ?></td>
                 <td><?php echo $fila['apellidos']; ?></td>
@@ -139,7 +160,27 @@
                 <td>
                 <a href="editar_estudiante.php?id=<?php echo base64_encode($fila['id']); ?>"><button type="button"class="btn  btn-warning">Editar</button></a>
 
-                <a href="borrar.php?id=<?php echo base64_encode($fila['id']);?>"><button class="btn btn-danger" type="reset">Borrar</button>
+                <button class="btn btn-danger" type="reset" data-bs-toggle="modal" data-bs-target="#modal_eliminar_<?php echo $fila['id'];?>">Borrar</button>
+
+                <!-- Modal -->
+            <div class="modal fade" id="modal_eliminar_<?php echo $fila['id'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Estudiante</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Seguro que desea eliminar al estudiante <?php echo $fila['nombres'].' '.$fila['apellidos'];?>?</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <a href="borrar.php?id=<?php echo base64_encode($fila['id']);?>"><button class="btn btn-danger" type="reset">Borrar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
             </td>
         </tr>
 
