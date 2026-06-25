@@ -2,6 +2,7 @@
     session_start();
 
     $mysql = new mysqli("localhost", "root","", "escuela1bd");
+
     $consulta = "SELECT * FROM estudiantes";
     $resultado = $mysql->query($consulta);
     $filas= $resultado->fetch_all(MYSQLI_ASSOC);
