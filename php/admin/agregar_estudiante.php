@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+        if ($_SESSION['tipo_usu'] <> 1) {
+        session_destroy();
+        header("Location: ../../index.html");
+    }
+
 ?>
 
 <!DOCTYPE html>

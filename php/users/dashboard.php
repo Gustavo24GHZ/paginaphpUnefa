@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if ($_SESSION['tipo_usu'] <> 1) {
+        if ($_SESSION['tipo_usu'] <> 2) {
         session_destroy();
         header("Location: ../../index.html");
     }
@@ -39,7 +39,7 @@
         </ul>
 
         <div class="container text-center mt-5">
-            <h1>Bienvenido Administrador <?php echo $_SESSION['nombre_usu'];?></h1>
+            <h1>Bienvenido Usuario <?php echo $_SESSION['nombre_usu'];?></h1>
         </div>
 
     <div class="container text-center">

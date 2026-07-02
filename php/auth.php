@@ -31,8 +31,16 @@
             $_SESSION['correo_usu'] = $row['correo_usuario'];
             $_SESSION['tipo_usu'] = $row['tipo_usuario'];
 
+            if ($row['tipo_usuario'] == 1) {
                 header("Location:admin/dashboard.php");
                 exit();
+            }
+
+            if ($row['tipo_usuario'] == 2) {
+                header("Location:users/dashboard.php");
+                exit();
+            }
+
         }else{
             echo "Contraseña incorrecta";
         }
